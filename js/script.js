@@ -44,3 +44,38 @@ window.addEventListener("scroll", () => {
     });
   }
 });
+
+// mobiile menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggleBtn = document.getElementById("menuToggleBtn");
+  const mobileNavMenu = document.getElementById("mobileNavMenu");
+  const navBackdrop = document.getElementById("navBackdrop");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Unified helper function to change class states cleanly
+  const toggleNavigation = () => {
+    menuToggleBtn.classList.toggle("open-active");
+    mobileNavMenu.classList.toggle("menu-open");
+    navBackdrop.classList.toggle("active-view");
+
+    // Prevent background body scroll layer when navigation menu is visible
+    if (mobileNavMenu.classList.contains("menu-open")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
+  // Click hooks for menu toggle trigger button and gray background overlay area
+  menuToggleBtn.addEventListener("click", toggleNavigation);
+  navBackdrop.addEventListener("click", toggleNavigation);
+
+  // Auto-close navigation panel drawer instantly when clicking any links lane route target
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileNavMenu.classList.contains("menu-open")) {
+        toggleNavigation();
+      }
+    });
+  });
+});
