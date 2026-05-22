@@ -1,0 +1,362 @@
+/* --- Global Resets & Variablen --- */
+:root {
+    --primary-blue: #0B3C9B;
+    --hover-blue: #164eb8;
+    --dark-navy: #071D49;
+    --text-main: #061533;
+    --text-muted: #4A5568;
+    --bg-white: #FFFFFF;
+    --bg-navbar: #d7d5d5;
+    --hero-tint: #F8FAFC; /* Added faint color for hero container separation */
+    --grid-line: rgba(11, 60, 155, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 4%; 
+    background-color: var(--bg-white);
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 10px 30px rgba(7, 29, 73, 0.03); 
+}
+
+
+/* NEW: The Glassmorphic look that triggers automatically on scroll */
+.navbar.scrolled {
+    padding: 14px 4%; 
+    background-color: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(12px) saturate(180%); 
+    -webkit-backdrop-filter: blur(12px) saturate(180%); 
+    border-bottom: 1px solid rgba(7, 29, 73, 0.07); 
+    box-shadow: 0 10px 40px rgba(7, 29, 73, 0.08); 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.1;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 0.5px;
+}
+
+.company-sub {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s ease;
+
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-blue);
+}
+
+.btn-quote {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #1A52C5 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(11, 60, 155, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-quote:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(11, 60, 155, 0.3);
+}
+
+
+/* --- Hero Layout Container Section --- */
+/* --- Hero Layout Container with Right-Side Blue Overlay --- */
+/* --- Hero Layout Container (मूळ डिझाईन - पांढरा/फिकट बॅकग्राउंड) --- */
+.hero-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 96px 3% 80px 4%;
+    
+    /* मूळ फिकट इंडस्ट्रियल ग्रॅडियंट बॅकग्राउंड जसा होता तसाच */
+    background: linear-gradient(135deg, 
+        #FFFFFF 0%,     
+        #F4F7FC 50%,    
+        #E2E8F0 100%     
+    );
+    
+    box-shadow: inset 0 -120px 100px -100px rgba(11, 60, 155, 0.08); 
+    overflow: hidden;
+}
+
+/* --- उजव्या बाजूचा इमेज आणि निळा ओव्हरले लेयर --- */
+.blueprint-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%; /* इमेज फक्त उजव्या बाजूला दिसेल */
+    height: 100%;
+    
+    /* ओव्हरले: डावीकडे (to left) जाताना निळा रंग पारदर्शक (Transparent) होईल.
+       डावी बाजू (0%): पूर्ण ट्रान्सपरंट. 
+       उजवी बाजू (100%): निळा ओव्हरले.
+    */
+    background: linear-gradient(135deg, 
+        rgba(7, 29, 73, 0.85) 0%,    /* उजवीकडे इमेजवर निळा ओव्हरले */
+        rgba(11, 60, 155, 0.4) 60%, 
+           rgba(11, 60, 155, 0.4) 60%, 
+              rgba(11, 60, 155, 0.4) 60%, 
+         rgba(193, 206, 233, 0.189)80%,
+           rgba(193, 206, 233, 0.189)80%, 
+             rgba(193, 206, 233, 0.189)80%,   /* मध्यभागी फिकट निळा */
+        rgba(244, 247, 252, 0) 100%   /* डावीकडे मजकुरापाशी पूर्ण ट्रान्सपरंट */
+    ), url('img/about2.jpg'); /* तुमची नवीन बॅकग्राउंड इमेज इथे टाका */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* मूळ ब्ल्यूप्रिंट ग्रिड डिझाईन राखण्यासाठी मास्क इफेक्ट */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+}
+
+/* मजकूर सुरक्षितपणे वर ठेवण्यासाठी */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* --- डाव्या बाजूचा मजकूर ब्लॉक --- */
+.hero-text-block {
+    max-width: 850px; /* मजकूर वाचायला सोपा व्हावा म्हणून रुंदी मर्यादित केली */
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 72px; /* मोठ्या स्क्रीनसाठी सुटसुटीत साईझ */
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--dark-navy, #0b2853);
+    margin-top: 40px;
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+}
+
+/* हेडिंगमधील स्पॅन (Span) चा ग्रेडियंट इफेक्ट */
+.hero-title span {
+    background: linear-gradient(180deg, #295dc5 20%, #061b41 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block; /* नवीन ओळीवर आणण्यासाठी */
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--text-muted, #4b5563);
+    margin-top: 24px;
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue, #0b3c9b);
+    color: white;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 25px rgba(11, 60, 155, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-blue, #295dc5);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--dark-navy, #0b2853);
+    text-decoration: none;
+    padding: 16px 36px;
+    border: 2px solid var(--dark-navy, #0b2853);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-navy, #0b2853);
+    color: white;
+}
+
+/* --- ट्रस्ट बॅज (Trust Badge Elements) --- */
+.trust-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 4%; 
+    background-color: var(--bg-white, #FFFFFF);
+    border: 1px solid rgba(7, 29, 73, 0.08);
+    border-radius: 12px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 10px 10px 30px rgba(7, 29, 73, 0.1);
+    z-index: 3;
+}
+
+.badge-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-muted, #4b5563);
+    letter-spacing: 1px;
+}
+
+.badge-headline {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark-navy, #0b2853);
+    margin-top: 4px;
+}
+
+.badge-seal {
+    border: 2px solid var(--dark-navy, #0b2853);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.years-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark-navy, #0b2853);
+}
+
+.years-label {
+    font-size: 7px;
+    font-weight: 600;
+    color: var(--dark-navy, #0b2853);
+    margin-top: 2px;
+}
+
+/* --- रिस्पॉन्सिव्ह डिझाईन (Mobile & Tablets) --- */
+@media (max-width: 1024px) {
+    .hero-container {
+        padding-top: 140px;
+        background-attachment: scroll; /* मोबाईलवर परफॉर्मन्स चांगला राहण्यासाठी */
+    }
+    .hero-text-block {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .hero-title {
+        font-size: 52px;
+    }
+    .hero-subtitle {
+        margin: 20px auto 35px auto;
+    }
+    .cta-group {
+        justify-content: center;
+    }
+    .trust-badge {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin: 50px auto 0 auto;
+        width: max-content;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 38px;
+    }
+    .cta-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
