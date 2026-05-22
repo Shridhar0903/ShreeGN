@@ -835,7 +835,7 @@ body {
     transform-style: preserve-3d;
     transform: rotateY(-20deg) scale(0.92) translateZ(-50px);
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-    margin: 0; /* FIXED: Removed layout breaking margins */
+    margin-top: 25px; /* FIXED: Removed layout breaking margins */
 }
 
 .product-3d-card:hover,
@@ -1187,4 +1187,254 @@ body {
     }
     
     .why-card { padding: 32px 24px; }
+}
+
+
+/* ================================================================================== */
+/* --- Clean White Theme Horizontal Scrolling Review Block --- */
+/* ================================================================================== */
+
+.reviews-section-clean {
+    --white-bg-primary: #FFFFFF;
+    --white-bg-alt: #F8FAFC;
+    --accent-blue-light: #3b82f6; 
+    --text-navy-main: #071D49;
+    --text-navy-muted: #4A5568;
+    --border-light: rgba(7, 29, 73, 0.08);
+
+    background-color: var(--white-bg-primary);
+    padding: 140px 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-container-clean {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* --- Clean Heading Elements --- */
+.reviews-pre-heading {
+     display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.reviews-header-clean {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 30px;
+}
+
+.reviews-title-clean {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-navy-main);
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.reviews-title-clean span {
+    background: linear-gradient(135deg, var(--accent-blue-light) 0%, #071D49 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.rating-badge-clean {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white-bg-alt);
+    border: 1px solid var(--border-light);
+    padding: 14px 24px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(7, 29, 73, 0.03);
+}
+
+.rating-badge-clean .badge-stars {
+    color: #fbbf24;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.rating-badge-clean .badge-text {
+    color: var(--text-navy-muted);
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+/* ================================================================================== */
+/* --- Infinite Horizontal Marquee Track Styling --- */
+/* ================================================================================== */
+
+.reviews-scroll-wrapper {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    padding: 20px 0;
+    
+    /* CRUCIAL: Creates the smooth transparent gradient masks on left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    /* Calls the infinite looping keyframe animation below */
+    animation: infiniteHorizontalScroll 35s linear infinite;
+}
+
+/* Pause track motion safely if user hovers cursor over any client review card */
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+.review-card-clean {
+    background: var(--white-bg-primary);
+    /* border: 2px solid #5087f5c2; */
+    border-radius: 20px;
+    padding: 40px 30px;
+    /* box-shadow: 0 10px 30px rgba(129, 132, 140, 0.695); */
+    width: 420px; /* Fixed standard architectural width for uniform sliding rows */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+   
+}
+
+.card-clean-quote {
+    color: rgba(9, 46, 107, 0.83);
+    margin-bottom: 24px;
+    transition: color 0.4s ease;
+}
+
+.card-clean-quote svg {
+    width: 36px;
+    height: 36px;
+}
+
+.card-clean-text {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--text-navy-muted);
+    margin: 0 0 35px 0;
+    font-weight: 400;
+}
+
+/* --- Profile Card Footers --- */
+.review-user-clean {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid rgba(7, 29, 73, 0.05);
+    padding-top: 24px;
+    transform: translateY(-8px);
+    border-color: rgba(9, 40, 89, 0.873);
+    box-shadow: 0 30px 60px rgba(7, 29, 73, 0);
+}
+
+.avatar-clean-bubble {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg ,var(--accent-blue-light),var(--primary-blue));
+    border: 1px solid var(--border-light);
+    color: var(--bg-white);
+    font-weight: 700;
+    font-size: 13.5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+.user-clean-meta {
+    overflow: hidden;
+}
+
+.user-clean-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-navy-main);
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-clean-role {
+    display: block;
+    font-size: 13px;
+    color: var(--text-navy-muted);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* --- Clean Hover State Interactions --- */
+.review-card-clean:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 30px 60px rgba(7, 29, 73, 0.08);
+}
+
+.review-card-clean:hover .card-clean-quote {
+    color: var(--accent-blue-light);
+}
+
+.review-card-clean:hover .avatar-clean-bubble {
+    background: var(--accent-blue-light);
+    color: #FFFFFF;
+    border-color: var(--accent-blue-light);
+    transform: scale(1.04);
+}
+
+/* ================================================================================== */
+/* --- Loop Animation Math Logic --- */
+/* ================================================================================== */
+@keyframes infiniteHorizontalScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Loops precisely halfway across the track where set 2 identical duplicates begin */
+        transform: translateX(calc(-50% - 15px)); 
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .reviews-section-clean { padding: 90px 0; }
+    .reviews-header-clean {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    .reviews-title-clean { font-size: 38px; }
+    .review-card-clean { width: 360px; padding: 30px 22px; }
+    .card-clean-text { font-size: 14.5px; }
 }
