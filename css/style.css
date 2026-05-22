@@ -1438,3 +1438,504 @@ body {
     .review-card-clean { width: 360px; padding: 30px 22px; }
     .card-clean-text { font-size: 14.5px; }
 }
+
+/* ================================================================================== */
+/* --- High-Contrast Contact CTA Section Styles --- */
+/* ================================================================================== */
+
+.contact-cta-section {
+    background-color: #F8FAFC; /* Light gray base padding so the section breaks out nicely */
+    padding: 20px 0 80px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cta-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* --- The Main Blue Breakout Banner --- */
+.cta-split-card {
+    position: relative;
+    background: #071D49; /* Deep engineering blue profile */
+    border-radius: 30px;
+    padding: 80px 60px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    overflow: hidden;
+    
+    /* Request Specifics: Shadow cast completely to the bottom and right sides */
+    box-shadow: 15px 15px 40px rgba(7, 29, 73, 0.25);
+}
+
+/* Technical blueprint background overlay grid */
+.cta-grid-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+        linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+/* --- Left Copy Styles --- */
+.cta-pre-heading {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3b82f6;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.cta-main-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    margin: 0 0 20px 0;
+}
+
+.cta-main-heading span {
+    background: linear-gradient(135deg, #3b82f6 0%, rgb(255, 255, 255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cta-description {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #94a3b8;
+    max-width: 620px;
+    margin: 0 0 35px 0;
+}
+
+/* Internal Trust Inline Tags */
+.cta-trust-tags {
+    display: flex;
+    gap: 30px;
+}
+
+.trust-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trust-tag svg {
+    width: 16px;
+    height: 16px;
+    color: #86efac; /* Green validation check */
+}
+
+/* --- Right Side Button Action Block --- */
+.cta-action-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Base button properties */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 36px;
+    border-radius: 14px;
+    font-size: 15.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Primary Conversion Button with Glow Accent */
+.btn-primary-glow {
+    background:linear-gradient(15deg, #3b82f6,#083987) ;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+}
+
+.btn-primary-glow svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary-glow:hover {
+    background: #2563eb;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
+}
+
+.btn-primary-glow:hover svg {
+    transform: translateX(5px); /* Arrow drives rightward on hover */
+}
+
+/* Secondary Structural Wireframe Button */
+.btn-secondary-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+}
+
+.btn-secondary-outline svg {
+    width: 16px;
+    height: 16px;
+    color: #3b82f6;
+}
+
+.btn-secondary-outline:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ================================================================================== */
+/* --- Responsive Adjustments --- */
+/* ================================================================================== */
+
+@media (max-width: 1100px) {
+    .cta-split-card {
+        grid-template-columns: 1fr; /* Drop side-by-side split into a single unified block column */
+        gap: 40px;
+        padding: 60px 40px;
+    }
+    .cta-action-block {
+        flex-direction: row; /* Align button paths horizontally side-by-side on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-cta-section { padding: 60px 0 100px 0; }
+    .cta-main-heading { font-size: 32px; }
+    
+    .cta-action-block {
+        flex-direction: column; /* Force stack single file vertical tracking on phones */
+    }
+    .cta-trust-tags {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ================================================================================== */
+/* --- Clean Industrial Multi-Column Footer Styles --- */
+/* ================================================================================== */
+
+.main-industrial-footer {
+    background-color: #061533; /* Dark industrial blue base color profile */
+    color: #cbd5e1;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* --- Brand Logo Container Integration --- */
+.Footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Forces the SVG to display in crisp, architectural white */
+.Footer-logo-container .logo-icon {
+    width: 80px;
+    height: 80px;
+    color: #FFFFFF; 
+    flex-shrink: 0;
+}
+
+.Footer-logo-container .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Footer-logo-container .company-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #FFFFFF; /* Pure White Main Name */
+    letter-spacing: 0.5px;
+}
+
+.Footer-logo-container .company-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #3b82f6; /* Pops "ENGINEERING" in electric blue to maintain brand identity */
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+/* Adjust spacing on the description below the logo container */
+.footer-about-text {
+    margin-top: 5px;
+}
+
+
+
+/* --- Upper Content Layout Block --- */
+.footer-upper-matrix {
+    padding: 90px 0 60px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid-row {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 1fr;
+    gap: 60px;
+}
+
+/* Column Type Layout Base Configuration */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #FFFFFF;
+    margin: 0 0 28px 0;
+    position: relative;
+}
+
+/* Subtle underlying accent track decoration line beneath titles */
+.footer-section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #3b82f6;
+}
+
+/* --- Brand Typography Block --- */
+.footer-logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.5px;
+}
+
+.footer-logo-text span {
+    color: #3b82f6;
+}
+
+.footer-about-text {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #94a3b8;
+    margin: 0 0 30px 0;
+}
+
+/* --- Vector Wireframe Link Navigation Items --- */
+.footer-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link-list li {
+    margin-bottom: 14px;
+}
+
+.footer-link-list a {
+    color: #94a3b8;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Slide out link animation trigger on mouse hover */
+.footer-link-list a:hover {
+    color: #3b82f6;
+    transform: translateX(6px);
+}
+
+/* --- Contact Identity Layout Tracks --- */
+.footer-meta-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.meta-item-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.meta-item-row.alignment-top {
+    align-items: flex-start;
+}
+
+.meta-icon-box {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #3b82f6;
+}
+
+.meta-icon-box svg {
+    width: 16px;
+    height: 16px;
+}
+
+.meta-link-anchor {
+    color: #94a3b8;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.meta-link-anchor:hover {
+    color: #FFFFFF;
+}
+
+.meta-text-block {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+/* --- Premium Vector Social Link Buttons --- */
+.footer-social-hub {
+    display: flex;
+    gap: 12px;
+}
+
+.social-glass-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-glass-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.social-glass-btn:hover {
+    background: #3b82f6;
+    color: #FFFFFF;
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* ================================================================================== */
+/* --- Lower Copyright Legal Footer Bar --- */
+/* ================================================================================== */
+
+.footer-lower-stripe {
+    background-color: #040f26; /* Deepest black-navy tint block */
+    padding: 26px 0;
+    font-size: 13.5px;
+    color: #64748b;
+}
+
+.stripe-flex-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.copyright-legal strong {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.creator-credits a {
+    color: #4f86d4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.creator-credits a:hover {
+    color: #3b82f6;
+}
+
+/* ================================================================================== */
+/* --- Responsive Adjustments --- */
+/* ================================================================================== */
+
+@media (max-width: 1024px) {
+    .footer-grid-row {
+        grid-template-columns: 1.2fr 0.8fr; /* Collapse down column count layout to 2 grids */
+        gap: 50px;
+    }
+    .col-brand-summary {
+        grid-column: span 2; /* Stretch signature block full width at tablet viewports */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 680px) {
+    .footer-upper-matrix { padding: 60px 0 40px 0; }
+    
+    .footer-grid-row {
+        grid-template-columns: 1fr; /* Pure linear column single stack on smart devices */
+        gap: 35px;
+    }
+    
+    .col-brand-summary { grid-column: span 1; }
+    
+    .stripe-flex-wrap {
+        flex-direction: column; /* Stacks copyright content vertical on phones */
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
