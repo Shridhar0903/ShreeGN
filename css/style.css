@@ -106,6 +106,27 @@ body {
     display: none; /* Hidden on desktop viewports */
 }
 
+.navbar.scrolled {
+    /* Compress structural height dimensions */
+    height: 70px; 
+    
+    /* Premium Frosted Glass Effect */
+    background-color: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    
+    /* Subtle reflective glass highlight border and shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.40);
+    box-shadow: 0 10px 30px rgba(7, 29, 73, 0.06);
+}
+
+/* Optional: Shrink internal logo/branding images when navigation is scrolled */
+.navbar.scrolled .logo-icon,
+.navbar.scrolled .nav-logo-block img {
+    transform: scale(0.92);
+    transition: transform 0.3s ease;
+}
+
 /* ================================================================================== */
 /* --- Mobile Responsive Transformation Zone (< 1024px) --- */
 /* ================================================================================== */
@@ -506,7 +527,7 @@ body {
     position: absolute;
 
     bottom: 10px;
-    right: 0;
+    right: 20px;
 
     z-index: 3;
 
